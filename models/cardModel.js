@@ -59,7 +59,7 @@ const updateCard = (id, cardData) => {
     const newData = data.map((card) => card.id === id ? updatedCard : card);
     try {
         fs.writeFileSync(filePath, JSON.stringify(newData));
-        return updatedCard;
+        return newData;
     } catch (err) {
         console.error(err);
         throw err;

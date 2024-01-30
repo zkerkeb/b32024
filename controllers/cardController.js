@@ -3,7 +3,7 @@ const cardModel = require('../models/cardModel');
 // Gère la logique de traitement des requêtes HTTP et envoie les réponses appropriées. Il utilise le modèle pour les opérations de données.
 
 const postCards = (req, res) => {
-    try {
+    try { 
         const newCard = cardModel.addCard(req.body);
         res.status(200).send({
             message: 'Données ajoutées avec succès',
