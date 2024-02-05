@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const cardController = require('./controllers/cardController');
+const userController = require('./controllers/userController');
 
 const app = express(); // Création de l'application Express
 
@@ -24,6 +25,8 @@ app.get('/cards',  cardController.getCards)
 app.get('/cards/:id', cardController.getCard)
 app.delete('/cards/:id', cardController.deleteCard);
 app.put('/cards/:id', cardController.updateCard);
+
+app.post('/login', userController.login);
 
 
 // Démarrage du serveur
