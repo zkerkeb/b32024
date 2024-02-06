@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 
+const jwtVerify = require('./middlewares/jwtVerify');
 const cardController = require('./controllers/cardController');
 const userController = require('./controllers/userController');
 
@@ -21,7 +22,7 @@ app.get('/', (req, res) => {
 
 // Route POST pour ajouter des données
 app.post('/cards', cardController.postCards);
-app.get('/cards',  cardController.getCards)
+app.get('/cards', jwtVerify, cardController.getCards)
 app.get('/cards/:id', cardController.getCard)
 app.delete('/cards/:id', cardController.deleteCard);
 app.put('/cards/:id', cardController.updateCard);
