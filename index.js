@@ -4,7 +4,13 @@ const cors = require('cors');
 
 const jwtVerify = require('./middlewares/jwtVerify');
 const cardController = require('./controllers/cardController');
+const cardControllerMongo = require('./controllers/cardControllerMongo');
 const userController = require('./controllers/userController');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/pokemon')
+  .then(() => console.log('Connexion à MongoDB réussie !'))
+  .catch((err) => console.log('Connexion à MongoDB échouée !', err));
 
 const app = express(); // Création de l'application Express
 
@@ -21,8 +27,9 @@ app.get('/', (req, res) => {
 });
 
 // Route POST pour ajouter des données
-app.post('/cards', cardController.postCards);
-app.get('/cards', jwtVerify, cardController.getCards)
+app.post('/cards', cardControllerMongo.postCards);
+app.get('/cards',  cardController.getCards)
+// app.get('/cards', jwtVerify, cardController.getCards)
 app.get('/cards/:id', cardController.getCard)
 app.delete('/cards/:id', cardController.deleteCard);
 app.put('/cards/:id', cardController.updateCard);
