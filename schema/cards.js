@@ -12,6 +12,7 @@ const cardSchema = new Schema({
             return this.name; // Rend le champ "age" obligatoire si "isAdult" est true
           }, 'Les points de vie sont obligatoires'],
     },
+    picture: String,
     type: String,
     description: String,
     trainer: String

@@ -690,6 +690,13 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   resolved "https://registry.npmjs.org/picomatch/-/picomatch-2.3.1.tgz"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
 
+pokemon@^2.3.6:
+  version "2.3.6"
+  resolved "https://registry.npmjs.org/pokemon/-/pokemon-2.3.6.tgz"
+  integrity sha512-Pctu9QYk0mrCZIXXzMkx1zk21EeyLeT1yzVeA1N1t2vvotj+XXNliBZVrI7pxy7DSLhpjR92d24Vp0X/rWr00Q==
+  dependencies:
+    unique-random-array "^2.0.0"
+
 proxy-addr@~2.0.7:
   version "2.0.7"
   resolved "https://registry.npmjs.org/proxy-addr/-/proxy-addr-2.0.7.tgz"
@@ -889,6 +896,18 @@ undefsafe@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npmjs.org/undefsafe/-/undefsafe-2.0.5.tgz"
   integrity sha512-WxONCrssBM8TSPRqN5EmsjVrsv4A8X12J4ArBiiayv3DyyG3ZlIg6yysuuSYdZsVz3TKcTg2fd//Ujd4CHV1iA==
+
+unique-random-array@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/unique-random-array/-/unique-random-array-2.0.0.tgz"
+  integrity sha512-xR87O95fZ7hljw84J8r1YDXrvffPLWN513BNOP4Bv0KcgG5dyEUrHwsvP7mVAOKg4Y80uqRbpUk0GKr8il70qg==
+  dependencies:
+    unique-random "^2.1.0"
+
+unique-random@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/unique-random/-/unique-random-2.1.0.tgz"
+  integrity sha512-iQ1ZgWac3b8YxGThecQFRQiqgk6xFERRwHZIWeVVsqlbmgCRl0PY13R4mUkodNgctmg5b5odG1nyW/IbOxQTqg==
 
 unpipe@~1.0.0, unpipe@1.0.0:
   version "1.0.0"

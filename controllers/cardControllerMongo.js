@@ -17,8 +17,62 @@ const postCards = async (req, res) => { // Ajout du mot-clé async ici
     }
 };
 
+const getCards = async (req, res) => {
+    const {limit, offset} = req.query;
+    try {
+        const data = await cardModelMongo.getCards(limit, offset);
+        res.status(200).send(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({ error: 'Erreur lors de la récupération des données', details: err.message });
+    }
+}
+
+const getCard = async (req, res) => {
+    try {
+        const data = await cardModelMongo.getCard(req.params.id);
+        if (!data) {
+            return res.status(404).send({ error: 'Aucune carte trouvée' });
+        }
+        res.status(200).send(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({ error: 'Erreur lors de la récupération des données', details: err.message });
+    }
+}
+
+const deleteCard = async (req, res) => {
+    try {
+        const data = await cardModelMongo.deleteCard(req.params.id);
+        if (!data) {
+            return res.status(404).send({ error: 'Aucune carte trouvée' });
+        }
+        res.status(200).send(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({ error: 'Erreur lors de la suppression des données', details: err.message });
+    }
+}
+
+const updateCard = async (req, res) => {
+    try {
+        const data = await cardModelMongo.updateCard(req.params.id, req.body);
+        if (!data) {
+            return res.status(404).send({ error: 'Aucune carte trouvée' });
+        }
+        res.status(200).send(data);
+    } catch (err) {
+        console.log(err);
+        res.status(500).send({ error: 'Erreur lors de la mise à jour des données', details: err.message });
+    }
+}
+
 module.exports = {
-    postCards
+    postCards,
+    getCards,
+    getCard,
+    deleteCard,
+    updateCard
 };
 
 

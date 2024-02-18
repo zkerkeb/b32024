@@ -28,11 +28,11 @@ app.get('/', (req, res) => {
 
 // Route POST pour ajouter des données
 app.post('/cards', cardControllerMongo.postCards);
-app.get('/cards',  cardController.getCards)
+app.get('/cards',  cardControllerMongo.getCards)
 // app.get('/cards', jwtVerify, cardController.getCards)
-app.get('/cards/:id', cardController.getCard)
-app.delete('/cards/:id', cardController.deleteCard);
-app.put('/cards/:id', cardController.updateCard);
+app.get('/cards/:id', cardControllerMongo.getCard)
+app.delete('/cards/:id', cardControllerMongo.deleteCard);
+app.put('/cards/:id', cardControllerMongo.updateCard);
 
 app.post('/login', userController.login);
 
