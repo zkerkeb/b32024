@@ -6,13 +6,18 @@ const jwtVerify = require('./middlewares/jwtVerify');
 const cardController = require('./controllers/cardController');
 const cardControllerMongo = require('./controllers/cardControllerMongo');
 const userController = require('./controllers/userController');
-const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/pokemon')
+require('dotenv').config();
+
+console.log(process.env.MONGO_DB_CONNECT);
+ 
+
+const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGO_DB_CONNECT)
   .then(() => console.log('Connexion à MongoDB réussie !'))
   .catch((err) => console.log('Connexion à MongoDB échouée !', err));
 
-const app = express(); // Création de l'application Express
+const app = express(); // Création de l'application Express 
 
 // Configuration de bodyParser pour analyser les données JSON et les données de formulaire
 app.use(cors());
