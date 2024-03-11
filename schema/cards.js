@@ -8,14 +8,25 @@ const cardSchema = new Schema({
     },
     hp: {
         type: Number,
-        required: [function() {
-            return this.name; // Rend le champ "age" obligatoire si "isAdult" est true
-          }, 'Les points de vie sont obligatoires'],
+        required: [true, 'Les points de vie sont obligatoires'],
     },
     picture: String,
     type: String,
     description: String,
-    trainer: String
+    isShiny: {
+        type: Boolean,
+        default: false,
+    },
+    trainer: String,
+    affinities: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Card'
+    }],
+    spells:[{
+        name: String,
+        power: Number,
+        description: String
+    }]
 });
 
 module.exports = mongoose.model('Card', cardSchema);

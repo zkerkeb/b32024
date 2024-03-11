@@ -29,10 +29,18 @@ app.get('/', (req, res) => {
 // Route POST pour ajouter des données
 app.post('/cards', cardControllerMongo.postCards);
 app.get('/cards',  cardControllerMongo.getCards)
+app.get('/cards/hp',  cardControllerMongo.getAverageHpByType)
+app.get('/cards/shiny',  cardControllerMongo.updatePokemonShinyStatus)
 // app.get('/cards', jwtVerify, cardController.getCards)
 app.get('/cards/:id', cardControllerMongo.getCard)
+app.post('/cards/:id/affinity', cardControllerMongo.addAffinity)
 app.delete('/cards/:id', cardControllerMongo.deleteCard);
 app.put('/cards/:id', cardControllerMongo.updateCard);
+
+
+app.post('/cards/:id/spell', cardControllerMongo.addSpell);
+app.delete('/cards/:id/spell/:spellId', cardControllerMongo.deleteSpell);
+app.delete('/cards/:id/spellBash/:name', cardControllerMongo.deleteSpellBash);
 
 app.post('/login', userController.login);
 

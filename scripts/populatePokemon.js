@@ -19,7 +19,7 @@ const populateCards = () => {
             hp: Math.floor(Math.random() * 100),
             cp: Math.floor(Math.random() * 100),
             picture: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonId}.png`,
-            type: 'Pokémon',
+            type: 'Pokemon type 2',
             description: `${pokemonName} de type Pokémon`,
             trainer: 'Sacha',
         });
